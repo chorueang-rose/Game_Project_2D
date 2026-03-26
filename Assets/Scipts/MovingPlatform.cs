@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class MovingPlatform : MonoBehaviour
@@ -24,5 +25,21 @@ public class MovingPlatform : MonoBehaviour
         }
 
         transform.position = Vector2.MoveTowards(transform.position, points[i].position, speed * Time.deltaTime);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            collision.transform.SetParent(transform);
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            collision.transform.SetParent(null);
+        }
     }
 }
