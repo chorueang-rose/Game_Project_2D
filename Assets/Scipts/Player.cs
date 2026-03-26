@@ -3,15 +3,18 @@ using System.Collections;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+    public int coins;
     public int health = 100;
     public float moveSpeed = 5f;
     public float jumpForce = 10f;
     public Transform groundCheck;
     public float groundCheckRadius = 0.2f;
     public LayerMask groundLayer;
+    public Image HealtImage;
     
     private Rigidbody2D rb;
     private bool isGrounded;
@@ -55,6 +58,8 @@ public class Player : MonoBehaviour
         }
 
         SetAnimation(moveInput);
+
+        HealtImage.fillAmount = health / 100f;
     }
 
     private void FixedUpdate()
@@ -90,7 +95,7 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Damage")
+        if (collision.gameObject.CompareTag("Damagee"))
         {
             health -= 25;
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
