@@ -119,4 +119,15 @@ public class Player : MonoBehaviour
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
     }
+
+    bool isClimbing;
+    private float climbSpeed;
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.CompareTag("Ladder"))
+        {
+            isClimbing = true;
+        }
+    }
 }
