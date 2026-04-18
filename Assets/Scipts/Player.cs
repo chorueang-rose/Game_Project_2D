@@ -31,6 +31,7 @@ public class Player : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
 
         extraJumps = extraJumpsValue;
+        sr = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -38,6 +39,14 @@ public class Player : MonoBehaviour
     {
         float moveInput = Input.GetAxis("Horizontal");
         rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
+
+        float horizontal = Input.GetAxis("Horizontal");
+
+        if (horizontal > 0)
+            sr.flipX = false;
+
+        else if (horizontal < 0)
+            sr.flipX = true;
 
         if (isGrounded)
         {
@@ -55,6 +64,7 @@ public class Player : MonoBehaviour
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
                 extraJumps--;
             }
+
         }
 
         SetAnimation(moveInput);
@@ -130,4 +140,5 @@ public class Player : MonoBehaviour
             isClimbing = true;
         }
     }
+    SpriteRenderer sr;
 }
