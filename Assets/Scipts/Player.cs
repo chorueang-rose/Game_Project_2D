@@ -15,6 +15,8 @@ public class Player : MonoBehaviour
     public float groundCheckRadius = 0.2f;
     public LayerMask groundLayer;
     public Image HealtImage;
+    public AudioClip jumpClip;
+    public AudioClip hurtClip;
     
     private Rigidbody2D rb;
     private bool isGrounded;
@@ -22,6 +24,7 @@ public class Player : MonoBehaviour
     private Animator animator;
 
     private SpriteRenderer spriteRenderer;
+    private AudioSource audioSource;
     public int extraJumpsValue = 1;
     private int extraJumps;
     void Start()
@@ -29,6 +32,7 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        audioSource = GetComponent<AudioSource>();
 
         extraJumps = extraJumpsValue;
         sr = GetComponent<SpriteRenderer>();
@@ -58,11 +62,13 @@ public class Player : MonoBehaviour
             if (isGrounded)
             {
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+                PlaySFX(jumpClip);
             }
             else if (extraJumps > 0)
             {
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
                 extraJumps--;
+                PlaySFX(jumpClip);
             }
 
         }
@@ -107,6 +113,7 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Damagee"))
         {
+            PlaySFX(hurtClip);
             health -= 25;
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
             StartCoroutine(BlinkRed());
@@ -141,4 +148,11 @@ public class Player : MonoBehaviour
         }
     }
     SpriteRenderer sr;
+
+    public void PlaySFX(AudioClip audioClip, float volume = 1f)
+    {
+        audioSource.clip = audioClip;
+        audioSource.volume = volume;
+        audioSource.Play();
+    }
 }
