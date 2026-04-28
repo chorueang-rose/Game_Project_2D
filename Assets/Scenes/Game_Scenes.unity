@@ -899,6 +899,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1778403883133757366, guid: 52e30390e49796f4cb223929d006e794, type: 3}
+      propertyPath: coinText
+      value: 
+      objectReference: {fileID: 571836526}
     - target: {fileID: 2865038287726037098, guid: 52e30390e49796f4cb223929d006e794, type: 3}
       propertyPath: m_Name
       value: Coin (Gold) (6)
@@ -961,7 +965,7 @@ GameObject:
   - component: {fileID: 465562309}
   m_Layer: 5
   m_Name: CoinUI
-  m_TagString: CoinText
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2537,6 +2541,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1778403883133757366, guid: 52e30390e49796f4cb223929d006e794, type: 3}
+      propertyPath: coinText
+      value: 
+      objectReference: {fileID: 571836526}
     - target: {fileID: 2865038287726037098, guid: 52e30390e49796f4cb223929d006e794, type: 3}
       propertyPath: m_Name
       value: Coin (Gold) (4)
@@ -6140,6 +6148,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1778403883133757366, guid: 52e30390e49796f4cb223929d006e794, type: 3}
+      propertyPath: coinText
+      value: 
+      objectReference: {fileID: 571836526}
     - target: {fileID: 2865038287726037098, guid: 52e30390e49796f4cb223929d006e794, type: 3}
       propertyPath: m_Name
       value: Coin (Gold) (5)
@@ -6197,6 +6209,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1778403883133757366, guid: 52e30390e49796f4cb223929d006e794, type: 3}
+      propertyPath: coinText
+      value: 
+      objectReference: {fileID: 571836526}
     - target: {fileID: 2865038287726037098, guid: 52e30390e49796f4cb223929d006e794, type: 3}
       propertyPath: m_Name
       value: Coin (Gold) (9)
@@ -6872,6 +6888,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1778403883133757366, guid: 52e30390e49796f4cb223929d006e794, type: 3}
+      propertyPath: coinText
+      value: 
+      objectReference: {fileID: 571836526}
     - target: {fileID: 2865038287726037098, guid: 52e30390e49796f4cb223929d006e794, type: 3}
       propertyPath: m_Name
       value: Coin (Gold) (2)
@@ -8337,6 +8357,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1778403883133757366, guid: 52e30390e49796f4cb223929d006e794, type: 3}
+      propertyPath: coinText
+      value: 
+      objectReference: {fileID: 571836526}
     - target: {fileID: 2865038287726037098, guid: 52e30390e49796f4cb223929d006e794, type: 3}
       propertyPath: m_Name
       value: Coin (Gold) (7)
@@ -8394,6 +8418,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1778403883133757366, guid: 52e30390e49796f4cb223929d006e794, type: 3}
+      propertyPath: coinText
+      value: 
+      objectReference: {fileID: 571836526}
     - target: {fileID: 2865038287726037098, guid: 52e30390e49796f4cb223929d006e794, type: 3}
       propertyPath: m_Name
       value: Coin (Gold)
@@ -9167,7 +9195,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0feda8b5d043a849aec6545c8d88016, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NextLevel
-  nextLevelName: Level2
+  nextLevelName: Level 2
+  nextLevelValue: 2
 --- !u!1 &1243536059
 GameObject:
   m_ObjectHideFlags: 0
@@ -10131,6 +10160,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1778403883133757366, guid: 52e30390e49796f4cb223929d006e794, type: 3}
+      propertyPath: coinText
+      value: 
+      objectReference: {fileID: 571836526}
     - target: {fileID: 2865038287726037098, guid: 52e30390e49796f4cb223929d006e794, type: 3}
       propertyPath: m_Name
       value: Coin (Gold) (3)
@@ -14635,6 +14668,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1778403883133757366, guid: 52e30390e49796f4cb223929d006e794, type: 3}
+      propertyPath: coinText
+      value: 
+      objectReference: {fileID: 571836526}
     - target: {fileID: 2865038287726037098, guid: 52e30390e49796f4cb223929d006e794, type: 3}
       propertyPath: m_Name
       value: Coin (Gold) (1)
@@ -16087,6 +16124,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1778403883133757366, guid: 52e30390e49796f4cb223929d006e794, type: 3}
+      propertyPath: coinText
+      value: 
+      objectReference: {fileID: 571836526}
     - target: {fileID: 2865038287726037098, guid: 52e30390e49796f4cb223929d006e794, type: 3}
       propertyPath: m_Name
       value: Coin (Gold) (8)
@@ -16235,6 +16276,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1778403883133757366, guid: 52e30390e49796f4cb223929d006e794, type: 3}
+      propertyPath: coinText
+      value: 
+      objectReference: {fileID: 571836526}
     - target: {fileID: 2865038287726037098, guid: 52e30390e49796f4cb223929d006e794, type: 3}
       propertyPath: m_Name
       value: Coin (Gold) (10)
@@ -17334,6 +17379,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1778403883133757366, guid: 52e30390e49796f4cb223929d006e794, type: 3}
+      propertyPath: coinText
+      value: 
+      objectReference: {fileID: 571836526}
     - target: {fileID: 2865038287726037098, guid: 52e30390e49796f4cb223929d006e794, type: 3}
       propertyPath: m_Name
       value: Coin (Gold) (11)
