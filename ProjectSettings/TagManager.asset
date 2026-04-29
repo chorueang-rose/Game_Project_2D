@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Damagee
   - CoinText
+  - Orange
+  - Strawberry
+  - Health
   layers:
   - Default
   - TransparentFX

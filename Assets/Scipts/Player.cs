@@ -10,11 +10,13 @@ public class Player : MonoBehaviour
     public int coins;
     public int health = 100;
     public float moveSpeed = 5f;
-    public float jumpForce = 10f;
+    public float jumpForce = 7.5f;
+    public float jumpContinuesForce = 1f;
     public Transform groundCheck;
     public float groundCheckRadius = 0.2f;
     public LayerMask groundLayer;
-    public Image HealtImage;
+    private Image HealthImage;
+
     public AudioClip jumpClip;
     public AudioClip hurtClip;
     
@@ -27,55 +29,102 @@ public class Player : MonoBehaviour
     private AudioSource audioSource;
     public int extraJumpsValue = 1;
     private int extraJumps;
+
+    public float coyoteTime = 0.2f;
+    private float coyoteTimeCounter;
+
+    public float jumpBufferTime = 0.15f;
+    private float jumpBufferCounter;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         audioSource = GetComponent<AudioSource>();
+        HealthImage = GameObject.FindWithTag("Health").GetComponent<Image>();
 
         extraJumps = extraJumpsValue;
-        sr = GetComponent<SpriteRenderer>();
+        
     }
 
-    // Update is called once per frame
     void Update()
     {
         float moveInput = Input.GetAxis("Horizontal");
         rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
 
-        float horizontal = Input.GetAxis("Horizontal");
-
-        if (horizontal > 0)
-            sr.flipX = false;
-
-        else if (horizontal < 0)
-            sr.flipX = true;
+        if(rb.linearVelocityX != 0)
+        {
+            if(rb.linearVelocityX > 0)
+            {
+                spriteRenderer.flipX = false;
+            }
+            else
+            {
+                spriteRenderer.flipX = true;
+            }
+        }
 
         if (isGrounded)
         {
+            coyoteTimeCounter = coyoteTime;
             extraJumps = extraJumpsValue;
         }
-        
-        if (Input.GetKeyDown(KeyCode.Space))
+        else
         {
-            if (isGrounded)
+            coyoteTimeCounter -= Time.deltaTime;
+        }
+
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            jumpBufferCounter = jumpBufferTime;
+        }
+        else
+        {
+            jumpBufferCounter -= Time.deltaTime;
+        }
+        
+        if (jumpBufferCounter > 0f)
+        {
+            if (coyoteTimeCounter > 0f)
             {
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
                 PlaySFX(jumpClip);
+                coyoteTimeCounter = 0f;
+                jumpBufferCounter = 0f;
             }
             else if (extraJumps > 0)
             {
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
                 extraJumps--;
                 PlaySFX(jumpClip);
+                jumpBufferCounter = 0f;
             }
 
         }
 
+        if(Input.GetKey(KeyCode.Space) && rb.linearVelocityY > 0)
+        {
+            rb.AddForceY(jumpContinuesForce);
+        }
+
         SetAnimation(moveInput);
 
-        HealtImage.fillAmount = health / 100f;
+        HealthImage.fillAmount = health / 100f;
+
+        if(rb.linearVelocityY < 0)
+        {
+            rb.gravityScale = 3f;
+        }
+        else
+        {
+            rb.gravityScale = 2f;
+        }
+
+        if(transform.position.y < -10)
+        {
+            Die();
+        }
     }
 
     private void FixedUpdate()
@@ -136,23 +185,18 @@ public class Player : MonoBehaviour
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
     }
-
-    bool isClimbing;
-    private float climbSpeed;
-
-    void OnTriggerEnter2D(Collider2D col)
-    {
-        if (col.CompareTag("Ladder"))
-        {
-            isClimbing = true;
-        }
-    }
-    SpriteRenderer sr;
-
     public void PlaySFX(AudioClip audioClip, float volume = 1f)
     {
         audioSource.clip = audioClip;
         audioSource.volume = volume;
         audioSource.Play();
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Strawberry")
+        {
+            extraJumps = 2;
+            Destroy(collision.gameObject);
+        }
     }
 }
