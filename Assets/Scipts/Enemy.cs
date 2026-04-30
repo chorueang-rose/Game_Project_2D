@@ -28,4 +28,12 @@ public class Enemy : MonoBehaviour
 
         spriteRenderer.flipX = (transform.position.x - points[i].position.x) < 0f;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Bullet")
+        {
+            Destroy(transform.parent.gameObject);
+        }
+    }
 }

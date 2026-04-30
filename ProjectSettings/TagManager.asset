@@ -9,6 +9,10 @@ TagManager:
   - Orange
   - Strawberry
   - Health
+  - Bullet
+  - Banana
+  - DialogueBox
+  - DialogueText
   layers:
   - Default
   - TransparentFX

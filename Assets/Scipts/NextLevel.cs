@@ -7,7 +7,7 @@ public class NextLevel : MonoBehaviour
     public void LoadNextLevel()
     {
         PlayerPrefs.SetInt("LevelReached", nextLevelValue);
-        UnityEngine.SceneManagement.SceneManager.LoadScene("nextLevelName");
+        UnityEngine.SceneManagement.SceneManager.LoadScene(nextLevelName);
         Time.timeScale = 1;
     }
 }
