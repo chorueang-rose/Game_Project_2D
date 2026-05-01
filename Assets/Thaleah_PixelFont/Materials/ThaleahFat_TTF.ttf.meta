@@ -1,5 +1,12 @@
 fileFormatVersion: 2
-guid: e3265ab4bf004d28a9537516768c1c75
+guid: 585188cdc4600544eb408bee749e4b3a
+AssetOrigin:
+  serializedVersion: 1
+  productId: 140059
+  packageName: Free Pixel Font - Thaleah
+  packageVersion: 1.1
+  assetPath: Assets/Thaleah_PixelFont/Materials/ThaleahFat_TTF.ttf
+  uploadId: 303939
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +16,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Liberation Sans
+  - ThaleahFat
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

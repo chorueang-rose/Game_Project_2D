@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEditor;
@@ -55,7 +55,25 @@ public class Player : MonoBehaviour
         HealthImage = GameObject.FindWithTag("Health").GetComponent<Image>();
 
         extraJumps = extraJumpsValue;
-        
+
+
+        string currentScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
+
+        if (Checkpoint.saveScene == currentScene && Checkpoint.savePosition != Vector2.zero)
+        {
+            // ✔ ใช้ checkpoint ของด่านนี้เท่านั้น
+            transform.position = Checkpoint.savePosition;
+        }
+        else
+        {
+            // ✔ ถ้าไม่ใช่ → ไป Start
+            GameObject start = GameObject.Find("Start");
+            if (start != null)
+            {
+                transform.position = start.transform.position;
+            }
+        }
+
     }
 
     void Update()

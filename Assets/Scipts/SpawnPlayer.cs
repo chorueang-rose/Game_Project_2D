@@ -1,0 +1,18 @@
+using UnityEngine;
+
+public class SpawnPlayer : MonoBehaviour
+{
+    void Start()
+    {
+        GameObject spawn = GameObject.FindWithTag("SpawnPoint");
+
+        if (spawn != null)
+        {
+            transform.position = spawn.transform.position;
+        }
+        else
+        {
+            Debug.LogWarning("ไม่เจอ SpawnPoint!");
+        }
+    }
+}

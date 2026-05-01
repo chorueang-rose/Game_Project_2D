@@ -13,6 +13,7 @@ TagManager:
   - Banana
   - DialogueBox
   - DialogueText
+  - SpawnPoint
   layers:
   - Default
   - TransparentFX
